@@ -12,7 +12,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="product",
             name="description",
-            field=models.TextField(blank=True, db_index=True),
+            field=models.CharField(blank=True, db_index=True, max_length=200),
         ),
         migrations.AlterField(
             model_name="product",
