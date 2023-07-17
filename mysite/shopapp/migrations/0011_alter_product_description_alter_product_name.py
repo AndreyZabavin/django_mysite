@@ -11,6 +11,11 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AlterField(
             model_name="product",
+            name='description',
+            field=models.CharField(max_length=200, null=False, blank=True, db_index=True),
+        ),
+        migrations.AlterField(
+            model_name="product",
             name="name",
             field=models.CharField(db_index=True, max_length=100),
         ),
