@@ -30,4 +30,4 @@ services:
     volumes:
       - ./mysite/database:/var/lib/postgresql/data
     environment:
-      - POSTGRES_PASSWORD=${POSTGRES_ROOT_PASSWORD}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
