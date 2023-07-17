@@ -18,16 +18,25 @@ services:
       options:
         max-file: '10'
         max-size: '200k'
-    volumes:
-      - ./mysite/database:/app/database
     depends_on:
       - db
+    networks:
+      - mynet
+
   db:
-    image:
-      postgres:latest
+    image: postgres:latest
     ports:
       - '5432:5432'
     volumes:
-      - ./mysite/database:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
     environment:
-      - POSTGRES_PASSWORD=${POSTGRES_ROOT_PASSWORD}
+      POSTGRES_PASSWORD: ${POSTGRES_ROOT_PASSWORD}
+    networks:
+      - mynet
+
+networks:
+  mynet:
+    driver: bridge
+
+volumes:
+  postgres_data:
